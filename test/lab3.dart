@@ -81,7 +81,65 @@ void main() {
       'WHITE FLAG: I used Github for this');
   String password = 'ohmybaby69'; // Change this to the password you want to check
   print('password $password strength is ${checkPasswordStrength(password)}');
+
+  //12
+  int rows = 4; // Change this to the number of rows you want
+  int cols = 12; // Change this to the number of columns you want
+
+  printTable(rows, cols);
+
+  //CLASSES
+  print(''
+      'CLASSES');
+  //1
+  print('1');
+  Animal myAnimal = new Animal('Shahboz', 19);
+  myAnimal.describe();
+
+  //2
+  print('2');
+  Car myCar = new Car('DAEWOO', 'DAMASS', 2000);
+  myCar.describe();
+
+  //3
+  print('3');
+  Book mybook = new Book('Some book', 'Teshavoy', 524);
+  mybook.describe();
+
+  //MAXINS
+  print(''
+      'MIXINS');
+  //1
+  print('1');
+  Fish myFish = new Fish();
+  myFish.swim();
+
+  //2
+  print('2');
+  Dog myDog = new Dog();
+  myDog.run();
+
+  //ABSTRACT CLASSES
+  print(''
+      'ABSTRACT');
+  //2
+  print('2');
+  Guitar myGuitar = new Guitar();
+  myGuitar.play();
+
+  Piano myPiano = new Piano();
+  myPiano.play();
+
+  //3
+  print('3');
+  Laptop myLaptop = new Laptop();
+  myLaptop.powerOn();
+
+  Smartphone mySmartphone = new Smartphone();
+  mySmartphone.powerOn();
+
 }
+
 
 
 
@@ -159,3 +217,110 @@ String checkPasswordStrength(String password) {
     return 'weak';
   }
 }
+
+//12
+void printTable(int rows, int cols) {
+  String rowSeparator = List.filled(cols, '---').join(' ');
+
+  for (int i = 0; i < rows; i++) {
+    print(rowSeparator);
+    print('| ' * cols);
+  }
+
+  print(rowSeparator);
+}
+
+//1
+class Animal {
+  String name;
+  int age;
+
+  Animal(this.name, this.age);
+
+  void describe() {
+    print('animal name is  $name and  $age of age.');
+  }
+}
+
+//2
+class Car {
+  String make;
+  String model;
+  int year;
+
+  Car(this.make, this.model, this.year);
+
+  void describe() {
+    print('car is a $year $make $model.');
+  }
+}
+
+//3
+class Book {
+  String title;
+  String author;
+  int pages;
+
+  Book(this.title, this.author, this.pages);
+
+  void describe() {
+    print('book "$title" written by $author and has $pages pages.');
+  }
+}
+
+//1
+mixin Swim {
+  void swim() {
+    print('Swimming...');
+  }
+}
+
+class Fish with Swim {}
+
+//2
+mixin Run {
+  void run() {
+    print('Running...');
+  }
+}
+
+class Dog with Run {}
+
+//ABSTRACT 2
+abstract class Instrument {
+  void play();
+}
+
+class Guitar implements Instrument {
+  @override
+  void play() {
+    print('Playing guitar...');
+  }
+}
+
+class Piano implements Instrument {
+  @override
+  void play() {
+    print('Playing piano...');
+  }
+}
+
+//3
+abstract class Device {
+  void powerOn();
+}
+
+class Laptop implements Device {
+  @override
+  void powerOn() {
+    print('Powering on the laptop...');
+  }
+}
+
+class Smartphone implements Device {
+  @override
+  void powerOn() {
+    print('Powering on the smartphone...');
+  }
+}
+
