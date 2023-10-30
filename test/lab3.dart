@@ -42,17 +42,34 @@ void main() {
 
   //6
   print('#6');
-  int num1 = 7; // change to check
-  print(isPrime(num1) ? "The number $num1 is prime" : "The number $num1 is not prime");
+  void main() {
+    List<int> firstlist = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+    List<int> secondlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 89];
+
+    List<int> matchingElement = firstlist.toSet().intersection(secondlist.toSet()).toList();
+    print( matchingElement);
+  }
+
+  //7
+  print('#7');
+  int num2 = 7;
+  print(isPrime1(num2) ? "The number $num2 is prime" : "The number $num2 is not prime");
+
+  //8
+  print('#8');
+  List<int> numbers = [1, 1, 2, 3, 6, 7, 3];
+  List<int> distinctNumbers = getDistinct(numbers);
+
+  print("distinct elements are: $distinctNumbers");
 }
 
 
 
 String checkOddEven(int number) {
   if (number % 2 == 0) {
-    return "The number $number is even";
+    return " number $number is even";
   } else {
-    return "The number $number is odd";
+    return "number $number is odd";
   }
 }
 
@@ -68,16 +85,22 @@ void printDivisors(int num) {
   print(" divisors of $num : $divisors");
 }
 
-bool isPrime(int num1) {
-  if (num1 < 2) {
+
+
+//7
+bool isPrime1(int num2) {
+  if (num2 < 2) {
     return false;
   }
 
-  for (int i = 2; i * i <= num1; i++) {
-    if (num1 % i == 0) {
+  for (int i = 2; i * i <= num2; i++) {
+    if (num2 % i == 0) {
       return false;
     }
   }
 
-  return true;
+  return true;}
+//8
+List<int> getDistinct(List<int> numbers) {
+  return numbers.toSet().toList();
 }
