@@ -61,6 +61,26 @@ void main() {
   List<int> distinctNumbers = getDistinct(numbers);
 
   print("distinct elements are: $distinctNumbers");
+
+  //9
+  print('#9');
+  int limit = 10;
+
+  print("Fibonacci up to $limit using  loop:");
+  printFibonacciLoop(limit);
+
+  print("\nFibonacci up to $limit using recursion:");
+  printFibonacciRecursion(limit);
+
+  //10
+  print('#10');
+  print("????");
+
+  //11
+  print('#11'
+      'WHITE FLAG: I used Github for this');
+  String password = 'ohmybaby69'; // Change this to the password you want to check
+  print('password $password strength is ${checkPasswordStrength(password)}');
 }
 
 
@@ -103,4 +123,39 @@ bool isPrime1(int num2) {
 //8
 List<int> getDistinct(List<int> numbers) {
   return numbers.toSet().toList();
+}
+
+//9
+void printFibonacciLoop(int limit) {
+  int a = 0, b = 1;
+
+  while (a <= limit) {
+    print(a);
+    int temp = b;
+    b = a + b;
+    a = temp;
+  }
+}
+
+void printFibonacciRecursion(int limit, [int a = 0, int b = 1]) {
+  if (a <= limit) {
+    print(a);
+    printFibonacciRecursion(limit, b, a + b);
+  }
+}
+
+//11
+String checkPasswordStrength(String password) {
+
+  RegExp strongRegex = new RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
+
+  RegExp normalRegex = new RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$');
+
+  if (strongRegex.hasMatch(password)) {
+    return 'strong';
+  } else if (normalRegex.hasMatch(password)) {
+    return 'normal';
+  } else {
+    return 'weak';
+  }
 }
